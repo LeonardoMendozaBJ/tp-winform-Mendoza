@@ -34,6 +34,7 @@
             this.btnEliminarART = new System.Windows.Forms.Button();
             this.dgvArticulo = new System.Windows.Forms.DataGridView();
             this.pictureBoxArticulo = new System.Windows.Forms.PictureBox();
+            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             ((System.ComponentModel.ISupportInitialize)(this.dgvArticulo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxArticulo)).BeginInit();
             this.SuspendLayout();
@@ -57,7 +58,7 @@
             this.btnAgregarART.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.btnAgregarART.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAgregarART.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAgregarART.Location = new System.Drawing.Point(12, 432);
+            this.btnAgregarART.Location = new System.Drawing.Point(12, 415);
             this.btnAgregarART.Name = "btnAgregarART";
             this.btnAgregarART.Size = new System.Drawing.Size(175, 40);
             this.btnAgregarART.TabIndex = 1;
@@ -71,7 +72,7 @@
             this.btnModificarART.BackColor = System.Drawing.Color.LemonChiffon;
             this.btnModificarART.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnModificarART.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnModificarART.Location = new System.Drawing.Point(421, 432);
+            this.btnModificarART.Location = new System.Drawing.Point(417, 416);
             this.btnModificarART.Name = "btnModificarART";
             this.btnModificarART.Size = new System.Drawing.Size(178, 39);
             this.btnModificarART.TabIndex = 2;
@@ -84,7 +85,7 @@
             this.btnEliminarART.BackColor = System.Drawing.Color.Salmon;
             this.btnEliminarART.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnEliminarART.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEliminarART.Location = new System.Drawing.Point(821, 432);
+            this.btnEliminarART.Location = new System.Drawing.Point(818, 416);
             this.btnEliminarART.Name = "btnEliminarART";
             this.btnEliminarART.Size = new System.Drawing.Size(174, 39);
             this.btnEliminarART.TabIndex = 3;
@@ -99,7 +100,7 @@
             this.dgvArticulo.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvArticulo.Location = new System.Drawing.Point(12, 98);
             this.dgvArticulo.Name = "dgvArticulo";
-            this.dgvArticulo.Size = new System.Drawing.Size(727, 285);
+            this.dgvArticulo.Size = new System.Drawing.Size(714, 285);
             this.dgvArticulo.TabIndex = 4;
             this.dgvArticulo.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             this.dgvArticulo.SelectionChanged += new System.EventHandler(this.dgvArticulo_SelectionChanged);
@@ -107,7 +108,7 @@
             // pictureBoxArticulo
             // 
             this.pictureBoxArticulo.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.pictureBoxArticulo.Location = new System.Drawing.Point(745, 98);
+            this.pictureBoxArticulo.Location = new System.Drawing.Point(738, 98);
             this.pictureBoxArticulo.MaximumSize = new System.Drawing.Size(275, 285);
             this.pictureBoxArticulo.MinimumSize = new System.Drawing.Size(275, 285);
             this.pictureBoxArticulo.Name = "pictureBoxArticulo";
@@ -116,6 +117,15 @@
             this.pictureBoxArticulo.TabIndex = 5;
             this.pictureBoxArticulo.TabStop = false;
             // 
+            // statusStrip1
+            // 
+            this.statusStrip1.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.Flow;
+            this.statusStrip1.Location = new System.Drawing.Point(0, 481);
+            this.statusStrip1.Name = "statusStrip1";
+            this.statusStrip1.Size = new System.Drawing.Size(1021, 0);
+            this.statusStrip1.TabIndex = 6;
+            this.statusStrip1.Text = "statusStrip1";
+            // 
             // frmArticulos
             // 
             this.AllowDrop = true;
@@ -123,6 +133,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.ClientSize = new System.Drawing.Size(1021, 481);
+            this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.pictureBoxArticulo);
             this.Controls.Add(this.dgvArticulo);
             this.Controls.Add(this.btnEliminarART);
@@ -136,6 +147,7 @@
             this.MinimumSize = new System.Drawing.Size(605, 508);
             this.Name = "frmArticulos";
             this.RightToLeftLayout = true;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Gestor para Articulos de Catálogo";
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvArticulo)).EndInit();
@@ -153,6 +165,7 @@
         private System.Windows.Forms.Button btnEliminarART;
         private System.Windows.Forms.DataGridView dgvArticulo;
         private System.Windows.Forms.PictureBox pictureBoxArticulo;
+        private System.Windows.Forms.StatusStrip statusStrip1;
     }
 }
 

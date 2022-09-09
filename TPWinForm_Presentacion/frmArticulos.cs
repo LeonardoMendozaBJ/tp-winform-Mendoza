@@ -25,7 +25,6 @@ namespace TPWinForm_Presentacion
         private void Form1_Load(object sender, EventArgs e)
         {
             cargarGrilla();
-
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -35,7 +34,9 @@ namespace TPWinForm_Presentacion
 
         private void btnAgregarART_Click(object sender, EventArgs e)
         {
-
+            frmAltaArticulo alta = new frmAltaArticulo();
+            alta.ShowDialog();
+            ////cargarGrilla();
 
         }
 
@@ -74,10 +75,10 @@ namespace TPWinForm_Presentacion
             {
                 pictureBoxArticulo.Load(imagen);
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                pictureBoxArticulo.Load("https://www.google.com/imgres?imgurl=https%3A%2F%2Fwpdirecto.com%2Fwp-content%2Fuploads%2F2017%2F08%2Falt-de-una-imagen.png&imgrefurl=https%3A%2F%2Fwpdirecto.com%2Fimagen-por-defecto-miniaturas%2F&tbnid=B6rQa8xwUHBKwM&vet=12ahUKEwjSzK7sqIj6AhW1uZUCHSiLDtIQMygEegUIARDHAQ..i&docid=X3wLzmG1bLpYvM&w=648&h=470&q=imagen%20por%20defecto&ved=2ahUKEwjSzK7sqIj6AhW1uZUCHSiLDtIQMygEegUIARDHAQ");
-                throw ex;
+                pictureBoxArticulo.Load("https://img.freepik.com/vector-gratis/pagina-error-404-distorsion_23-2148105404.jpg");
+                
             }
         }
     }
