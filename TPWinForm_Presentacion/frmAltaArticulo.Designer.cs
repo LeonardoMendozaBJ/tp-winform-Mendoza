@@ -34,16 +34,16 @@
             this.lblNombre = new System.Windows.Forms.Label();
             this.lbldescripcion = new System.Windows.Forms.Label();
             this.txtNombre = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.txtPrecio = new System.Windows.Forms.TextBox();
             this.lblMarca = new System.Windows.Forms.Label();
-            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
+            this.rtbDescripcion = new System.Windows.Forms.RichTextBox();
             this.bttnAceptar = new System.Windows.Forms.Button();
             this.bttnCancelar = new System.Windows.Forms.Button();
             this.cbxMarca = new System.Windows.Forms.ComboBox();
             this.lblCategoria = new System.Windows.Forms.Label();
             this.cbxCategoria = new System.Windows.Forms.ComboBox();
             this.lblUrlImagen = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtUrl = new System.Windows.Forms.TextBox();
             this.lblPrecio = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
@@ -60,18 +60,18 @@
             // lblCodigo
             // 
             this.lblCodigo.AutoSize = true;
-            this.lblCodigo.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCodigo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblCodigo.Location = new System.Drawing.Point(12, 62);
             this.lblCodigo.Name = "lblCodigo";
-            this.lblCodigo.Size = new System.Drawing.Size(113, 13);
+            this.lblCodigo.Size = new System.Drawing.Size(62, 16);
             this.lblCodigo.TabIndex = 1;
-            this.lblCodigo.Text = "Codigo (numérico):";
+            this.lblCodigo.Text = "Codigo:";
             // 
             // txtCodigo
             // 
-            this.txtCodigo.Location = new System.Drawing.Point(132, 59);
+            this.txtCodigo.Location = new System.Drawing.Point(120, 59);
             this.txtCodigo.Name = "txtCodigo";
-            this.txtCodigo.Size = new System.Drawing.Size(328, 20);
+            this.txtCodigo.Size = new System.Drawing.Size(340, 20);
             this.txtCodigo.TabIndex = 2;
             // 
             // lblNombre
@@ -102,12 +102,13 @@
             this.txtNombre.Size = new System.Drawing.Size(340, 20);
             this.txtNombre.TabIndex = 5;
             // 
-            // textBox3
+            // txtPrecio
             // 
-            this.textBox3.Location = new System.Drawing.Point(120, 388);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(340, 20);
-            this.textBox3.TabIndex = 6;
+            this.txtPrecio.Location = new System.Drawing.Point(120, 388);
+            this.txtPrecio.Name = "txtPrecio";
+            this.txtPrecio.Size = new System.Drawing.Size(340, 20);
+            this.txtPrecio.TabIndex = 6;
+            this.txtPrecio.TextChanged += new System.EventHandler(this.textBox3_TextChanged);
             // 
             // lblMarca
             // 
@@ -119,13 +120,13 @@
             this.lblMarca.TabIndex = 7;
             this.lblMarca.Text = "Marca:";
             // 
-            // richTextBox1
+            // rtbDescripcion
             // 
-            this.richTextBox1.Location = new System.Drawing.Point(120, 145);
-            this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(340, 83);
-            this.richTextBox1.TabIndex = 8;
-            this.richTextBox1.Text = "";
+            this.rtbDescripcion.Location = new System.Drawing.Point(120, 145);
+            this.rtbDescripcion.Name = "rtbDescripcion";
+            this.rtbDescripcion.Size = new System.Drawing.Size(340, 83);
+            this.rtbDescripcion.TabIndex = 8;
+            this.rtbDescripcion.Text = "";
             // 
             // bttnAceptar
             // 
@@ -138,6 +139,7 @@
             this.bttnAceptar.TabIndex = 9;
             this.bttnAceptar.Text = "ACEPTAR";
             this.bttnAceptar.UseVisualStyleBackColor = false;
+            this.bttnAceptar.Click += new System.EventHandler(this.bttnAceptar_Click);
             // 
             // bttnCancelar
             // 
@@ -190,12 +192,12 @@
             this.lblUrlImagen.TabIndex = 14;
             this.lblUrlImagen.Text = "URL de Imagen";
             // 
-            // textBox1
+            // txtUrl
             // 
-            this.textBox1.Location = new System.Drawing.Point(120, 343);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(340, 20);
-            this.textBox1.TabIndex = 15;
+            this.txtUrl.Location = new System.Drawing.Point(120, 343);
+            this.txtUrl.Name = "txtUrl";
+            this.txtUrl.Size = new System.Drawing.Size(340, 20);
+            this.txtUrl.TabIndex = 15;
             // 
             // lblPrecio
             // 
@@ -214,16 +216,16 @@
             this.BackColor = System.Drawing.Color.LightSkyBlue;
             this.ClientSize = new System.Drawing.Size(505, 493);
             this.Controls.Add(this.lblPrecio);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.txtUrl);
             this.Controls.Add(this.lblUrlImagen);
             this.Controls.Add(this.cbxCategoria);
             this.Controls.Add(this.lblCategoria);
             this.Controls.Add(this.cbxMarca);
             this.Controls.Add(this.bttnCancelar);
             this.Controls.Add(this.bttnAceptar);
-            this.Controls.Add(this.richTextBox1);
+            this.Controls.Add(this.rtbDescripcion);
             this.Controls.Add(this.lblMarca);
-            this.Controls.Add(this.textBox3);
+            this.Controls.Add(this.txtPrecio);
             this.Controls.Add(this.txtNombre);
             this.Controls.Add(this.lbldescripcion);
             this.Controls.Add(this.lblNombre);
@@ -246,16 +248,16 @@
         private System.Windows.Forms.Label lblNombre;
         private System.Windows.Forms.Label lbldescripcion;
         private System.Windows.Forms.TextBox txtNombre;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox txtPrecio;
         private System.Windows.Forms.Label lblMarca;
-        private System.Windows.Forms.RichTextBox richTextBox1;
+        private System.Windows.Forms.RichTextBox rtbDescripcion;
         private System.Windows.Forms.Button bttnAceptar;
         private System.Windows.Forms.Button bttnCancelar;
         private System.Windows.Forms.ComboBox cbxMarca;
         private System.Windows.Forms.Label lblCategoria;
         private System.Windows.Forms.ComboBox cbxCategoria;
         private System.Windows.Forms.Label lblUrlImagen;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtUrl;
         private System.Windows.Forms.Label lblPrecio;
     }
 }

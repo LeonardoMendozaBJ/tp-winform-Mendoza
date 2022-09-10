@@ -74,5 +74,49 @@ namespace TPWinForm_Presentacion
                 MessageBox.Show(ex.ToString());
             }
         }
+
+        private void textBox3_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void bttnAceptar_Click(object sender, EventArgs e)
+        {
+
+           
+            ArticuloNegocio negocio = new ArticuloNegocio();
+            Articulo articulo = new Articulo();
+            try
+            {
+               /* if (articulo == null) */
+                   
+
+                articulo.Codigo = txtCodigo.Text.Trim();
+                articulo.Nombre = txtNombre.Text.Trim();
+                articulo.Descripcion = rtbDescripcion.Text.Trim();
+                articulo.marca = (Marca)cbxMarca.SelectedItem;
+                articulo.categoria = (Categoria)cbxCategoria.SelectedItem;
+                articulo.ImagenURL = txtUrl.Text.Trim();
+                articulo.Precio = Convert.ToDecimal(txtPrecio.Text.Trim());
+
+               /* if (articulo.Codigo != "")
+                    negocio.modificar(articulo);
+
+                else*/
+                negocio.agregar(articulo);
+
+                MessageBox.Show("operación realizada con exito!");
+             
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.ToString());
+            }
+
+            finally { Close(); }
+
+        }
+
     }
 }

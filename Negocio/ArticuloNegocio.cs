@@ -18,14 +18,14 @@ namespace Negocio
             {
                 datos.setearConsulta(" select Codigo, A.Nombre, A.Descripcion, A.Precio, A.IdCategoria, A.IdMarca, A.ImagenURL, M.Id, M.Descripcion, C.Id, C.Descripcion " +
                     "from ARTICULOS A left join MARCAS M on A.IdMarca = M.Id left join CATEGORIAS c on a.IdCategoria = C.Id ");
-                    datos.ejecutarLecura();
+                datos.ejecutarLecura();
                 while (datos.Lector.Read())
                 {
                     Articulo aux = new Articulo();
                     aux.Codigo = (string)datos.Lector["Codigo"];
                     aux.Nombre = (string)datos.Lector["Nombre"];
                     aux.Descripcion = (string)datos.Lector["Descripcion"];
-                    
+
                     if (!Convert.IsDBNull(datos.Lector["Precio"]))
                         aux.Precio = (decimal)datos.Lector["Precio"];
                     aux.ImagenURL = (string)datos.Lector["ImagenURL"];
@@ -50,6 +50,27 @@ namespace Negocio
                 throw ex;
             }
 
+        }
+
+        public void agregar(Articulo nuevo)
+        {
+
+            AccesoDatos datos = new AccesoDatos();
+
+            try
+            {
+                datos.setearConsulta(" insert into ARTICULOS (Codigo, Nombre, Descripcion, IdMarca, IdCategoria, ImagenURL, Precio) Values ('" + nuevo.Codigo + "' , '" + nuevo.Nombre + "', '" + nuevo.Descripcion + "' , " + nuevo.marca.Idmarca + "," + nuevo.categoria.IdCategoria + ", '" + nuevo.ImagenURL + "' ," + nuevo.Precio + ")");
+                datos.ejecutarAccion();
+            }
+
+            catch (Exception ex)
+            {
+                     throw ex;
+            }
+            finally { datos.cerrarConexion(); }
+        }
+        public void modificar(Articulo nuevo)
+        {
         }
     }
 }
