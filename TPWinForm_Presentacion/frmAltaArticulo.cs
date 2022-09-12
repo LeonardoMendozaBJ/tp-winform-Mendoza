@@ -10,13 +10,22 @@ using System.Windows.Forms;
 using Dominio;
 using Negocio;
 
+
 namespace TPWinForm_Presentacion
 {
     public partial class frmAltaArticulo : Form
     {
+        private Articulo articulo = null;
         public frmAltaArticulo()
         {
             InitializeComponent();
+        }
+
+        public frmAltaArticulo(Articulo articulo)
+        {
+            InitializeComponent();
+            this.articulo = articulo;
+
         }
 
         private void lblNombre_Click(object sender, EventArgs e)
@@ -40,17 +49,17 @@ namespace TPWinForm_Presentacion
                 cbxMarca.DataSource = marca.listar();
                 cbxCategoria.DataSource = categoria.listar();
 
+               
 
+                cbxMarca.DataSource = marca.listar();
+                cbxMarca.ValueMember = "IdMarca";
+                cbxMarca.DisplayMember = "Descripcion";
+                /*cbxMarca.SelectedIndex = -1;*/
 
-               /* cboMarca.DataSource = marca.listar();
-                cboMarca.ValueMember = "IdMarca";
-                cboMarca.DisplayMember = "marca";
-                cboMarca.SelectedIndex = -1;
-
-                cboCategoria.DataSource = categoria.listar();
-                cboCategoria.ValueMember = "IdCategoria";
-                cboCategoria.DisplayMember = "categoria";
-                cboCategoria.SelectedIndex = -1;
+                cbxCategoria.DataSource = categoria.listar();
+                cbxCategoria.ValueMember = "IdCategoria";
+                cbxCategoria.DisplayMember = "Descripcion";
+                /*cbxCategoria.SelectedIndex = -1;*/
                 
                 
                 if (articulo != null)
@@ -58,14 +67,18 @@ namespace TPWinForm_Presentacion
                     Text = "Modificar Articulo";
                     txtCodigo.Text = articulo.Codigo;
                     txtNombre.Text = articulo.Nombre;
-                    txtDescripcion.Text = articulo.Descripcion;
-                    if (articulo.marca != null)
-                        cboMarca.SelectedValue = articulo.marca.marca;
-                    if (articulo.categoria != null)
-                        cboCategoria.SelectedValue = articulo.categoria.categoria;
+                    rtbDescripcion.Text = articulo.Descripcion;
+                  /*if (articulo.Marca != null)*/
+                        cbxMarca.SelectedValue = articulo.Marca.Idmarca;
+                   /* if (articulo.Categoria != null) */
+                        cbxCategoria.SelectedValue = articulo.Categoria.IdCategoria;
+                  
+                    txtUrl.Text = articulo.ImagenURL;
+                    cargarImagen(articulo.ImagenURL);
+                    txtPrecio.Text = articulo.Precio.ToString();
 
                 }
-               */
+               
 
             }
             catch (Exception ex)
@@ -85,28 +98,31 @@ namespace TPWinForm_Presentacion
 
            
             ArticuloNegocio negocio = new ArticuloNegocio();
-            Articulo articulo = new Articulo();
+           /* Articulo articulo = new Articulo();*/
             try
             {
-               /* if (articulo == null) */
-                   
+                if (articulo == null)
+                    articulo = new Articulo();
 
                 articulo.Codigo = txtCodigo.Text.Trim();
                 articulo.Nombre = txtNombre.Text.Trim();
                 articulo.Descripcion = rtbDescripcion.Text.Trim();
-                articulo.marca = (Marca)cbxMarca.SelectedItem;
-                articulo.categoria = (Categoria)cbxCategoria.SelectedItem;
+                articulo.Marca = (Marca)cbxMarca.SelectedItem;
+                articulo.Categoria = (Categoria)cbxCategoria.SelectedItem;
                 articulo.ImagenURL = txtUrl.Text.Trim();
                 articulo.Precio = Convert.ToDecimal(txtPrecio.Text.Trim());
 
-               /* if (articulo.Codigo != "")
+                if (articulo.Id != 0)
+                {
                     negocio.modificar(articulo);
+                    MessageBox.Show("ARTICULO MODIFICADO CON EXITO!");
+                }
+                else
+                {
+                    negocio.agregar(articulo);
 
-                else*/
-                negocio.agregar(articulo);
-
-                MessageBox.Show("operación realizada con exito!");
-             
+                    MessageBox.Show("ARTICULO AGREGADO CON EXITO!");
+                }
             }
             catch (Exception ex)
             {
@@ -118,5 +134,31 @@ namespace TPWinForm_Presentacion
 
         }
 
+        private void frmAltaArticulo_Leave(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtUrl_Leave(object sender, EventArgs e)
+        {
+            cargarImagen(txtUrl.Text);
+        }
+        private void cargarImagen(string imagen)
+        {
+            try
+            {
+                pictureBoxArticulo.Load(imagen);
+            }
+            catch (Exception)
+            {
+                pictureBoxArticulo.Load("https://img.freepik.com/vector-gratis/pagina-error-404-distorsion_23-2148105404.jpg");
+
+            }
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

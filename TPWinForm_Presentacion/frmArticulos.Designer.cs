@@ -78,6 +78,7 @@
             this.btnModificarART.TabIndex = 2;
             this.btnModificarART.Text = "Modificar Articulo";
             this.btnModificarART.UseVisualStyleBackColor = false;
+            this.btnModificarART.Click += new System.EventHandler(this.btnModificarART_Click);
             // 
             // btnEliminarART
             // 
@@ -98,8 +99,11 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvArticulo.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvArticulo.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dgvArticulo.Location = new System.Drawing.Point(12, 98);
+            this.dgvArticulo.MultiSelect = false;
             this.dgvArticulo.Name = "dgvArticulo";
+            this.dgvArticulo.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvArticulo.Size = new System.Drawing.Size(714, 285);
             this.dgvArticulo.TabIndex = 4;
             this.dgvArticulo.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
@@ -116,6 +120,7 @@
             this.pictureBoxArticulo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBoxArticulo.TabIndex = 5;
             this.pictureBoxArticulo.TabStop = false;
+            this.pictureBoxArticulo.Click += new System.EventHandler(this.pictureBoxArticulo_Click);
             // 
             // statusStrip1
             // 

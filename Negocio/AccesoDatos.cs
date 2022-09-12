@@ -33,6 +33,11 @@ namespace Negocio
 
         }
 
+        public void setearParametro(string nombre, object valor)
+        {
+            comando.Parameters.AddWithValue(nombre, valor);
+        }
+
         public void ejecutarLecura()
         {
             comando.Connection = conexion;

@@ -45,6 +45,8 @@
             this.lblUrlImagen = new System.Windows.Forms.Label();
             this.txtUrl = new System.Windows.Forms.TextBox();
             this.lblPrecio = new System.Windows.Forms.Label();
+            this.pictureBoxArticulo = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxArticulo)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -71,8 +73,8 @@
             // 
             this.txtCodigo.Location = new System.Drawing.Point(120, 59);
             this.txtCodigo.Name = "txtCodigo";
-            this.txtCodigo.Size = new System.Drawing.Size(340, 20);
-            this.txtCodigo.TabIndex = 2;
+            this.txtCodigo.Size = new System.Drawing.Size(196, 20);
+            this.txtCodigo.TabIndex = 0;
             // 
             // lblNombre
             // 
@@ -99,14 +101,14 @@
             // 
             this.txtNombre.Location = new System.Drawing.Point(120, 101);
             this.txtNombre.Name = "txtNombre";
-            this.txtNombre.Size = new System.Drawing.Size(340, 20);
-            this.txtNombre.TabIndex = 5;
+            this.txtNombre.Size = new System.Drawing.Size(196, 20);
+            this.txtNombre.TabIndex = 1;
             // 
             // txtPrecio
             // 
             this.txtPrecio.Location = new System.Drawing.Point(120, 388);
             this.txtPrecio.Name = "txtPrecio";
-            this.txtPrecio.Size = new System.Drawing.Size(340, 20);
+            this.txtPrecio.Size = new System.Drawing.Size(196, 20);
             this.txtPrecio.TabIndex = 6;
             this.txtPrecio.TextChanged += new System.EventHandler(this.textBox3_TextChanged);
             // 
@@ -124,8 +126,8 @@
             // 
             this.rtbDescripcion.Location = new System.Drawing.Point(120, 145);
             this.rtbDescripcion.Name = "rtbDescripcion";
-            this.rtbDescripcion.Size = new System.Drawing.Size(340, 83);
-            this.rtbDescripcion.TabIndex = 8;
+            this.rtbDescripcion.Size = new System.Drawing.Size(196, 83);
+            this.rtbDescripcion.TabIndex = 2;
             this.rtbDescripcion.Text = "";
             // 
             // bttnAceptar
@@ -133,10 +135,10 @@
             this.bttnAceptar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.bttnAceptar.BackColor = System.Drawing.Color.LightGreen;
             this.bttnAceptar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bttnAceptar.Location = new System.Drawing.Point(43, 458);
+            this.bttnAceptar.Location = new System.Drawing.Point(43, 493);
             this.bttnAceptar.Name = "bttnAceptar";
             this.bttnAceptar.Size = new System.Drawing.Size(167, 24);
-            this.bttnAceptar.TabIndex = 9;
+            this.bttnAceptar.TabIndex = 7;
             this.bttnAceptar.Text = "ACEPTAR";
             this.bttnAceptar.UseVisualStyleBackColor = false;
             this.bttnAceptar.Click += new System.EventHandler(this.bttnAceptar_Click);
@@ -146,10 +148,10 @@
             this.bttnCancelar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.bttnCancelar.BackColor = System.Drawing.Color.LightCoral;
             this.bttnCancelar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bttnCancelar.Location = new System.Drawing.Point(287, 458);
+            this.bttnCancelar.Location = new System.Drawing.Point(374, 493);
             this.bttnCancelar.Name = "bttnCancelar";
             this.bttnCancelar.Size = new System.Drawing.Size(164, 24);
-            this.bttnCancelar.TabIndex = 10;
+            this.bttnCancelar.TabIndex = 8;
             this.bttnCancelar.Text = "CANCELAR";
             this.bttnCancelar.UseVisualStyleBackColor = false;
             this.bttnCancelar.Click += new System.EventHandler(this.bttnCancelar_Click);
@@ -160,8 +162,8 @@
             this.cbxMarca.FormattingEnabled = true;
             this.cbxMarca.Location = new System.Drawing.Point(120, 246);
             this.cbxMarca.Name = "cbxMarca";
-            this.cbxMarca.Size = new System.Drawing.Size(340, 21);
-            this.cbxMarca.TabIndex = 11;
+            this.cbxMarca.Size = new System.Drawing.Size(196, 21);
+            this.cbxMarca.TabIndex = 3;
             // 
             // lblCategoria
             // 
@@ -179,8 +181,8 @@
             this.cbxCategoria.FormattingEnabled = true;
             this.cbxCategoria.Location = new System.Drawing.Point(120, 292);
             this.cbxCategoria.Name = "cbxCategoria";
-            this.cbxCategoria.Size = new System.Drawing.Size(340, 21);
-            this.cbxCategoria.TabIndex = 13;
+            this.cbxCategoria.Size = new System.Drawing.Size(196, 21);
+            this.cbxCategoria.TabIndex = 4;
             // 
             // lblUrlImagen
             // 
@@ -196,8 +198,9 @@
             // 
             this.txtUrl.Location = new System.Drawing.Point(120, 343);
             this.txtUrl.Name = "txtUrl";
-            this.txtUrl.Size = new System.Drawing.Size(340, 20);
-            this.txtUrl.TabIndex = 15;
+            this.txtUrl.Size = new System.Drawing.Size(196, 20);
+            this.txtUrl.TabIndex = 5;
+            this.txtUrl.Leave += new System.EventHandler(this.txtUrl_Leave);
             // 
             // lblPrecio
             // 
@@ -209,12 +212,26 @@
             this.lblPrecio.TabIndex = 16;
             this.lblPrecio.Text = "Pecio $";
             // 
+            // pictureBoxArticulo
+            // 
+            this.pictureBoxArticulo.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.pictureBoxArticulo.Location = new System.Drawing.Point(358, 145);
+            this.pictureBoxArticulo.Name = "pictureBoxArticulo";
+            this.pictureBoxArticulo.Size = new System.Drawing.Size(220, 192);
+            this.pictureBoxArticulo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBoxArticulo.TabIndex = 17;
+            this.pictureBoxArticulo.TabStop = false;
+            this.pictureBoxArticulo.Click += new System.EventHandler(this.pictureBox1_Click);
+            // 
             // frmAltaArticulo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightSkyBlue;
-            this.ClientSize = new System.Drawing.Size(505, 493);
+            this.ClientSize = new System.Drawing.Size(592, 528);
+            this.Controls.Add(this.pictureBoxArticulo);
             this.Controls.Add(this.lblPrecio);
             this.Controls.Add(this.txtUrl);
             this.Controls.Add(this.lblUrlImagen);
@@ -232,9 +249,14 @@
             this.Controls.Add(this.txtCodigo);
             this.Controls.Add(this.lblCodigo);
             this.Controls.Add(this.label1);
+            this.MaximumSize = new System.Drawing.Size(608, 567);
+            this.MinimumSize = new System.Drawing.Size(608, 567);
             this.Name = "frmAltaArticulo";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "NUEVO ARTICULO";
             this.Load += new System.EventHandler(this.frmAltaArticulo_Load);
+            this.Leave += new System.EventHandler(this.frmAltaArticulo_Leave);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxArticulo)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -259,5 +281,6 @@
         private System.Windows.Forms.Label lblUrlImagen;
         private System.Windows.Forms.TextBox txtUrl;
         private System.Windows.Forms.Label lblPrecio;
+        private System.Windows.Forms.PictureBox pictureBoxArticulo;
     }
 }

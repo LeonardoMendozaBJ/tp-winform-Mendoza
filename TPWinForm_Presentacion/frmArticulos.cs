@@ -36,7 +36,7 @@ namespace TPWinForm_Presentacion
         {
             frmAltaArticulo alta = new frmAltaArticulo();
             alta.ShowDialog();
-            ////cargarGrilla();
+            cargarGrilla();
 
         }
 
@@ -52,6 +52,7 @@ namespace TPWinForm_Presentacion
                 ArticuloNegocio negocio = new ArticuloNegocio();
                 listaArticulo = negocio.listar();
                 dgvArticulo.DataSource = listaArticulo;
+                dgvArticulo.Columns["Id"].Visible = false;
                 pictureBoxArticulo.Load(listaArticulo[0].ImagenURL);
 
 
@@ -59,7 +60,7 @@ namespace TPWinForm_Presentacion
             catch (Exception ex)
             {
 
-                MessageBox.Show(ex.ToString());
+                MessageBox.Show(ex.ToString()+ "falla frilla " );
             }
         }
 
@@ -80,6 +81,25 @@ namespace TPWinForm_Presentacion
                 pictureBoxArticulo.Load("https://img.freepik.com/vector-gratis/pagina-error-404-distorsion_23-2148105404.jpg");
                 
             }
+        }
+
+        private void pictureBoxArticulo_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnModificarART_Click(object sender, EventArgs e)
+        {
+           
+                Articulo seleccionado;
+                seleccionado = (Articulo)dgvArticulo.CurrentRow.DataBoundItem;
+                frmAltaArticulo modificar = new frmAltaArticulo(seleccionado);
+              /*  frmAltaArticulo.Text = "Modificar Articulo";*/
+
+                modificar.ShowDialog();  
+                cargarGrilla();
+            
+
         }
     }
 }
