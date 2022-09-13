@@ -92,6 +92,7 @@
             this.btnEliminarART.TabIndex = 3;
             this.btnEliminarART.Text = "Eliminar Articulo";
             this.btnEliminarART.UseVisualStyleBackColor = false;
+            this.btnEliminarART.Click += new System.EventHandler(this.btnEliminarART_Click);
             // 
             // dgvArticulo
             // 
