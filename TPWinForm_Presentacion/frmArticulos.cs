@@ -25,6 +25,11 @@ namespace TPWinForm_Presentacion
         private void Form1_Load(object sender, EventArgs e)
         {
             cargarGrilla();
+            cboCampo.Items.Add("Precio");
+                cboCampo.Items.Add("Nombre");
+                cboCampo.Items.Add("Descripción");
+            cboCampo.Items.Add("Marca");
+            cboCampo.Items.Add("Categoria");
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -158,6 +163,50 @@ namespace TPWinForm_Presentacion
             dgvArticulo.DataSource = null;
             dgvArticulo.DataSource = listaFiltrada;
             ocultarColumnas();
+        }
+
+        private void cboCampo_SelectedIndexChanged(object sender, EventArgs e)
+        {
+             string opcion = cboCampo.SelectedItem.ToString();
+            if (opcion == "Precio")
+            {
+                cboCriterio.Items.Clear();
+                cboCriterio.Items.Add("Mayor a");
+                cboCriterio.Items.Add("Menor a");
+                cboCriterio.Items.Add("Igual a");
+            }
+
+            else
+            {
+                cboCriterio.Items.Clear();
+                cboCriterio.Items.Add("Comienza con");
+                cboCriterio.Items.Add("Termina con");
+                cboCriterio.Items.Add("Contiene");
+            }
+        }
+
+        private void btnBuscar_Click(object sender, EventArgs e)
+        {
+            ArticuloNegocio negocio = new ArticuloNegocio();
+
+            try
+            {
+                string campo = cboCampo.SelectedItem.ToString();
+                string criterio = cboCriterio.SelectedItem.ToString();
+                string filtro = txtFiltroAvanzado.Text;
+                dgvArticulo.DataSource = negocio.filtrar(campo,criterio,filtro);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+                
+            }
+            
+        }
+
+        private void cboCriterio_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
