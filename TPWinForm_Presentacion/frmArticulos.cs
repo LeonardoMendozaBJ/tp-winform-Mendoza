@@ -52,7 +52,7 @@ namespace TPWinForm_Presentacion
                 ArticuloNegocio negocio = new ArticuloNegocio();
                 listaArticulo = negocio.listar();
                 dgvArticulo.DataSource = listaArticulo;
-                dgvArticulo.Columns["Id"].Visible = false;
+                ocultarColumnas();
                 pictureBoxArticulo.Load(listaArticulo[0].ImagenURL);
 
 
@@ -66,8 +66,17 @@ namespace TPWinForm_Presentacion
 
         private void dgvArticulo_SelectionChanged(object sender, EventArgs e)
         {
-           Articulo seleccionado = (Articulo)dgvArticulo.CurrentRow.DataBoundItem;
-           cargarImagen(seleccionado.ImagenURL);
+            if (dgvArticulo.CurrentRow != null)
+            {
+                Articulo seleccionado = (Articulo)dgvArticulo.CurrentRow.DataBoundItem;
+                cargarImagen(seleccionado.ImagenURL);
+            }
+        }
+
+        private void ocultarColumnas()
+        {
+            dgvArticulo.Columns["ImagenURL"].Visible = false;
+            dgvArticulo.Columns["Id"].Visible = false;
         }
 
         private void cargarImagen (string imagen)
@@ -90,13 +99,18 @@ namespace TPWinForm_Presentacion
 
         private void btnModificarART_Click(object sender, EventArgs e)
         {
-           
-                Articulo seleccionado;
-                seleccionado = (Articulo)dgvArticulo.CurrentRow.DataBoundItem;
-                frmAltaArticulo modificar = new frmAltaArticulo(seleccionado);
-              /*  frmAltaArticulo.Text = "Modificar Articulo";*/
 
-                modificar.ShowDialog();  
+            
+            
+            if (dgvArticulo.CurrentRow != null)
+            {
+                Articulo seleccionado = (Articulo)dgvArticulo.CurrentRow.DataBoundItem;
+                frmAltaArticulo modificar = new frmAltaArticulo(seleccionado);
+                modificar.ShowDialog();
+            }
+            
+            
+            /*  frmAltaArticulo.Text = "Modificar Articulo";*/
                 cargarGrilla();
             
 
@@ -123,6 +137,27 @@ namespace TPWinForm_Presentacion
 
                 MessageBox.Show(ex.ToString());
             }
+        }
+
+     
+
+        private void txtFiltro_TextChanged(object sender, EventArgs e)
+        {
+            List<Articulo> listaFiltrada;
+            string filtro = txtFiltro.Text;
+
+            if (filtro != "")
+            {
+                listaFiltrada = listaArticulo.FindAll(x => x.Nombre.ToUpper().Contains(filtro.ToUpper()) || x.Descripcion.ToUpper().Contains(filtro.ToUpper()));
+            }
+            else
+            {
+                listaFiltrada = listaArticulo;
+            }
+
+            dgvArticulo.DataSource = null;
+            dgvArticulo.DataSource = listaFiltrada;
+            ocultarColumnas();
         }
     }
 }
