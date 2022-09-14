@@ -92,7 +92,7 @@ namespace TPWinForm_Presentacion
             }
             catch (Exception)
             {
-                pictureBoxArticulo.Load("https://img.freepik.com/vector-gratis/pagina-error-404-distorsion_23-2148105404.jpg");
+                pictureBoxArticulo.Load("https://aramar.com/wp-content/uploads/2017/05/aramar-suministros-para-el-vidrio-cristal-sin-imagen-disponible.jpg");
                 
             }
         }

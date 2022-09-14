@@ -3,19 +3,21 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Dominio;
 using Negocio;
-
+using System.Configuration;
 
 namespace TPWinForm_Presentacion
 {
     public partial class frmAltaArticulo : Form
     {
         private Articulo articulo = null;
+        private OpenFileDialog archivo = null;
         public frmAltaArticulo()
         {
             InitializeComponent();
@@ -67,7 +69,7 @@ namespace TPWinForm_Presentacion
                     Text = "Modificar Articulo";
                     txtCodigo.Text = articulo.Codigo;
                     txtNombre.Text = articulo.Nombre;
-                    rtbDescripcion.Text = articulo.Descripcion;
+                    txtDescripcion.Text = articulo.Descripcion;
                   /*if (articulo.Marca != null)*/
                         cbxMarca.SelectedValue = articulo.Marca.Idmarca;
                    /* if (articulo.Categoria != null) */
@@ -106,7 +108,7 @@ namespace TPWinForm_Presentacion
 
                 articulo.Codigo = txtCodigo.Text.Trim();
                 articulo.Nombre = txtNombre.Text.Trim();
-                articulo.Descripcion = rtbDescripcion.Text.Trim();
+                articulo.Descripcion = txtDescripcion.Text.Trim();
                 articulo.Marca = (Marca)cbxMarca.SelectedItem;
                 articulo.Categoria = (Categoria)cbxCategoria.SelectedItem;
                 articulo.ImagenURL = txtUrl.Text.Trim();
@@ -123,6 +125,12 @@ namespace TPWinForm_Presentacion
 
                     MessageBox.Show("ARTICULO AGREGADO CON EXITO!");
                 }
+                //Guardo imagen si la levantó localmente:
+                if (archivo != null && !(txtUrl.Text.ToUpper().Contains("HTTP")))
+                {
+                    File.Copy(archivo.FileName, ConfigurationManager.AppSettings["images-folder"] + archivo.SafeFileName);
+                }
+
             }
             catch (Exception ex)
             {
@@ -130,6 +138,8 @@ namespace TPWinForm_Presentacion
                 MessageBox.Show(ex.ToString());
             }
 
+           
+          
             finally { Close(); }
 
         }
@@ -151,7 +161,7 @@ namespace TPWinForm_Presentacion
             }
             catch (Exception)
             {
-                pictureBoxArticulo.Load("https://img.freepik.com/vector-gratis/pagina-error-404-distorsion_23-2148105404.jpg");
+                pictureBoxArticulo.Load("https://aramar.com/wp-content/uploads/2017/05/aramar-suministros-para-el-vidrio-cristal-sin-imagen-disponible.jpg");
 
             }
         }
@@ -159,6 +169,19 @@ namespace TPWinForm_Presentacion
         private void pictureBox1_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnAgregarImagen_Click(object sender, EventArgs e)
+        {
+            archivo = new OpenFileDialog();
+            archivo.Filter = "jpg|*.jpg;|png|*.png";
+            if (archivo.ShowDialog() == DialogResult.OK)
+            {
+                txtUrl.Text = archivo.FileName;
+                cargarImagen(archivo.FileName);
+
+          
+            }
         }
     }
 }
