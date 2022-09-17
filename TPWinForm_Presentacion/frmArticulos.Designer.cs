@@ -44,6 +44,7 @@
             this.lblFiltroAvanzado = new System.Windows.Forms.Label();
             this.btnBuscar = new System.Windows.Forms.Button();
             this.txtFiltroAvanzado = new System.Windows.Forms.TextBox();
+            this.bttnDetalleArticulo = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvArticulo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxArticulo)).BeginInit();
             this.SuspendLayout();
@@ -230,6 +231,17 @@
             this.txtFiltroAvanzado.Size = new System.Drawing.Size(100, 20);
             this.txtFiltroAvanzado.TabIndex = 15;
             // 
+            // bttnDetalleArticulo
+            // 
+            this.bttnDetalleArticulo.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.bttnDetalleArticulo.Location = new System.Drawing.Point(517, 51);
+            this.bttnDetalleArticulo.Name = "bttnDetalleArticulo";
+            this.bttnDetalleArticulo.Size = new System.Drawing.Size(209, 20);
+            this.bttnDetalleArticulo.TabIndex = 16;
+            this.bttnDetalleArticulo.Text = "Detalle de Articulo";
+            this.bttnDetalleArticulo.UseVisualStyleBackColor = true;
+            this.bttnDetalleArticulo.Click += new System.EventHandler(this.bttnDetalleArticulo_Click);
+            // 
             // frmArticulos
             // 
             this.AllowDrop = true;
@@ -237,6 +249,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.ClientSize = new System.Drawing.Size(1021, 569);
+            this.Controls.Add(this.bttnDetalleArticulo);
             this.Controls.Add(this.txtFiltroAvanzado);
             this.Controls.Add(this.btnBuscar);
             this.Controls.Add(this.lblFiltroAvanzado);
@@ -288,6 +301,7 @@
         private System.Windows.Forms.Label lblFiltroAvanzado;
         private System.Windows.Forms.Button btnBuscar;
         private System.Windows.Forms.TextBox txtFiltroAvanzado;
+        private System.Windows.Forms.Button bttnDetalleArticulo;
     }
 }
 

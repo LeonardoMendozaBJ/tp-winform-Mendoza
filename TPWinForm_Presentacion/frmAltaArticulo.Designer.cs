@@ -234,7 +234,7 @@
             this.txtDescripcion.Location = new System.Drawing.Point(120, 145);
             this.txtDescripcion.Name = "txtDescripcion";
             this.txtDescripcion.Size = new System.Drawing.Size(196, 20);
-            this.txtDescripcion.TabIndex = 19;
+            this.txtDescripcion.TabIndex = 2;
             // 
             // frmAltaArticulo
             // 
@@ -261,6 +261,7 @@
             this.Controls.Add(this.txtCodigo);
             this.Controls.Add(this.lblCodigo);
             this.Controls.Add(this.label1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximumSize = new System.Drawing.Size(608, 567);
             this.MinimumSize = new System.Drawing.Size(608, 567);
             this.Name = "frmAltaArticulo";

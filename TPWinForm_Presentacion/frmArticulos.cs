@@ -242,5 +242,33 @@ namespace TPWinForm_Presentacion
         {
 
         }
+
+        private void bttnDetalleArticulo_Click(object sender, EventArgs e)
+        {
+
+            try
+            {
+                Articulo seleccionado = (Articulo)dgvArticulo.CurrentRow.DataBoundItem;
+
+
+                string codigo = seleccionado.Codigo;
+                string nombre = seleccionado.Nombre;
+                string descripcion = seleccionado.Descripcion;
+                string marca = seleccionado.Marca.ToString();
+                string categoria = seleccionado.Categoria.ToString();
+                string precio = seleccionado.Precio.ToString();
+
+                MessageBox.Show("DETALLE DEL ARTICULO:\n\n\n" + "Codigo: " + codigo + "\n\nNombre: " + nombre + "\n\nDescripción: " + descripcion + "\n\nMarca: " + marca + "\n\nCategoria: " + categoria + "\n\nPrecio: " + precio );
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("No selecciono ningun Articulo");
+                ;
+            }
+            
+            
+
+
+        }
     }
 }
