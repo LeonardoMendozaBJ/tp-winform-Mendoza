@@ -161,6 +161,7 @@
             // 
             // lblCampo
             // 
+            this.lblCampo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.lblCampo.AutoSize = true;
             this.lblCampo.Location = new System.Drawing.Point(15, 474);
             this.lblCampo.Name = "lblCampo";
@@ -170,6 +171,7 @@
             // 
             // cboCampo
             // 
+            this.cboCampo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.cboCampo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboCampo.FormattingEnabled = true;
             this.cboCampo.Location = new System.Drawing.Point(66, 470);
@@ -180,6 +182,7 @@
             // 
             // lblCriterio
             // 
+            this.lblCriterio.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.lblCriterio.AutoSize = true;
             this.lblCriterio.Location = new System.Drawing.Point(217, 474);
             this.lblCriterio.Name = "lblCriterio";
@@ -189,6 +192,7 @@
             // 
             // cboCriterio
             // 
+            this.cboCriterio.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.cboCriterio.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboCriterio.FormattingEnabled = true;
             this.cboCriterio.Location = new System.Drawing.Point(270, 470);
@@ -199,6 +203,7 @@
             // 
             // lblFiltroAvanzado
             // 
+            this.lblFiltroAvanzado.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.lblFiltroAvanzado.AutoSize = true;
             this.lblFiltroAvanzado.Location = new System.Drawing.Point(428, 474);
             this.lblFiltroAvanzado.Name = "lblFiltroAvanzado";
@@ -208,6 +213,7 @@
             // 
             // btnBuscar
             // 
+            this.btnBuscar.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.btnBuscar.Location = new System.Drawing.Point(651, 469);
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.Size = new System.Drawing.Size(75, 23);
@@ -218,6 +224,7 @@
             // 
             // txtFiltroAvanzado
             // 
+            this.txtFiltroAvanzado.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.txtFiltroAvanzado.Location = new System.Drawing.Point(529, 470);
             this.txtFiltroAvanzado.Name = "txtFiltroAvanzado";
             this.txtFiltroAvanzado.Size = new System.Drawing.Size(100, 20);

@@ -56,12 +56,12 @@ namespace TPWinForm_Presentacion
                 cbxMarca.DataSource = marca.listar();
                 cbxMarca.ValueMember = "IdMarca";
                 cbxMarca.DisplayMember = "Descripcion";
-                /*cbxMarca.SelectedIndex = -1;*/
+                cbxMarca.SelectedIndex = -1;
 
                 cbxCategoria.DataSource = categoria.listar();
                 cbxCategoria.ValueMember = "IdCategoria";
                 cbxCategoria.DisplayMember = "Descripcion";
-                /*cbxCategoria.SelectedIndex = -1;*/
+                cbxCategoria.SelectedIndex = -1;
                 
                 
                 if (articulo != null)
@@ -98,11 +98,21 @@ namespace TPWinForm_Presentacion
         private void bttnAceptar_Click(object sender, EventArgs e)
         {
 
-           
+
+            /* ArticuloNegocio negocio = new ArticuloNegocio();/*
+            /* Articulo articulo = new Articulo();*/
+
             ArticuloNegocio negocio = new ArticuloNegocio();
-           /* Articulo articulo = new Articulo();*/
+
             try
             {
+
+
+                if (validarAceptar())
+                    
+               
+                return;
+
                 if (articulo == null)
                     articulo = new Articulo();
 
@@ -144,6 +154,8 @@ namespace TPWinForm_Presentacion
 
         }
 
+
+
         private void frmAltaArticulo_Leave(object sender, EventArgs e)
         {
 
@@ -183,5 +195,79 @@ namespace TPWinForm_Presentacion
           
             }
         }
+
+        private bool validarAceptar()
+        {
+            Filtros filtro = new Filtros();
+            if (string.IsNullOrEmpty(txtCodigo.Text))
+            {
+                MessageBox.Show("Por favor, Ingrese un codigo de Art.");
+                return true;
+            }
+            if (string.IsNullOrEmpty(txtNombre.Text))
+            {
+                MessageBox.Show("Por favor, Ingrese datos en Nombre.");
+                return true;
+
+
+            }
+            if (!(filtro.soloLetras(txtNombre.Text)) && !(filtro.soloNumeros(txtNombre.Text)) )
+            {
+                MessageBox.Show("Solo se admiten Únicamente letras y números para Nombres");
+                return true;
+            }
+
+            if (string.IsNullOrEmpty(txtDescripcion.Text))
+            {
+                MessageBox.Show("Por favor, Ingrese datos en Descripción.");
+                return true;
+            }
+            if (!(filtro.soloLetras(txtDescripcion.Text)) && !(filtro.soloNumeros(txtDescripcion.Text)))
+            {
+                MessageBox.Show("Solo se admiten Únicamente letras y números para la Descripción");
+                return true;
+            }
+
+         
+
+            if (cbxMarca.SelectedIndex < 0 )
+            {
+               
+            
+                    MessageBox.Show("Se debe seleccionar una Marca");
+                    return true;
+                }
+            /* if (!(filtro.soloNumeros(txtFiltroAvanzado.Text)))
+             {
+                 MessageBox.Show("Solo numeros para filtrar por un campo de Precios...");
+                 return true;
+             }*/
+
+            if (cbxCategoria.SelectedIndex < 0)
+            { 
+                MessageBox.Show("Se debe seleccionar una Categoria");
+                return true;
+            }
+
+            if (string.IsNullOrEmpty(txtPrecio.Text))
+            {
+                MessageBox.Show("Por favor, Ingrese un Precio que contengan datos Numericos.");
+                return true;
+
+            }
+            if (!(filtro.soloNumeros(txtPrecio.Text)))
+            {
+                MessageBox.Show("Solo se admiten datos Numericos para el Precio del Articulo");
+                return true;
+            }
+            return false;
+        }
+
+            
+        }
+
+
     }
-}
+
+
+

@@ -191,6 +191,9 @@ namespace TPWinForm_Presentacion
 
             try
             {
+
+                if (validarFiltro())
+                    return;
                 string campo = cboCampo.SelectedItem.ToString();
                 string criterio = cboCriterio.SelectedItem.ToString();
                 string filtro = txtFiltroAvanzado.Text;
@@ -204,6 +207,37 @@ namespace TPWinForm_Presentacion
             
         }
 
+        private bool validarFiltro()
+        {
+            Filtros filtro = new Filtros();
+            if (cboCampo.SelectedIndex < 0)
+            {
+                MessageBox.Show("Por favor, seleccione el campo para filtrar.");
+                return true;
+            }
+            if (cboCriterio.SelectedIndex < 0)
+            {
+                MessageBox.Show("Por favor, seleccione el criterio para filtrar.");
+                return true;
+            }
+            if (cboCampo.SelectedItem.ToString() == "Precio")
+            {
+                if (string.IsNullOrEmpty(txtFiltroAvanzado.Text))
+                {
+                    MessageBox.Show("Se debe cargar datos Numericos para el Filtro Avanzado de Precio");
+                    return true;
+                }
+                if (!(filtro.soloNumeros(txtFiltroAvanzado.Text)))
+                {
+                    MessageBox.Show("Solo numeros para filtrar por un campo de Precios...");
+                    return true;
+                }
+
+            }
+
+            return false;
+        }
+     
         private void cboCriterio_SelectedIndexChanged(object sender, EventArgs e)
         {
 
